@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Controller;
 
-class PMPizzaOrderController extends Controller {
+class PMPizzaOrderController extends ApiController {
 
 	/**
 	 * Display a listing of the resource.
@@ -12,7 +12,7 @@ class PMPizzaOrderController extends Controller {
 	 */
 	public function index()
 	{
-		//
+
 	}
 
 	/**

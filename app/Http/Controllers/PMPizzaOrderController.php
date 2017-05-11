@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Models\PMPad;
+
 class PMPizzaOrderController extends BaseAPIController {
 
 	/**
@@ -9,21 +11,31 @@ class PMPizzaOrderController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
-		//
+        return view('admin.list');
 	}
 
+    public function index()
+    {
+        return view('user.list');
+    }
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /pmpizzaorder/create
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function adminCreate()
 	{
-		//
+
 	}
+
+    public function create()
+    {
+
+
+    }
 
 	/**
 	 * Store a newly created resource in storage.
@@ -31,10 +43,15 @@ class PMPizzaOrderController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function adminStore()
 	{
 		//
 	}
+
+    public function store()
+    {
+        //
+    }
 
 	/**
 	 * Display the specified resource.
@@ -43,10 +60,15 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function adminShow($id)
 	{
-		//
+        return view('admin.singlePizza');
 	}
+
+    public function show($id)
+    {
+        return view('user.singlePizza');
+    }
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -55,7 +77,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function adminEdit($id)
 	{
 		//
 	}
@@ -67,7 +89,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function adminUpdate($id)
 	{
 		//
 	}
@@ -79,7 +101,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function adminDestroy($id)
 	{
 		//
 	}

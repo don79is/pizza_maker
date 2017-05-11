@@ -2,6 +2,8 @@
 
 
 
+use App\Models\PMPad;
+
 class PMPadController extends BaseAPIController {
 
 	/**
@@ -10,9 +12,11 @@ class PMPadController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
-		//
+        $configuration ['list'] = PMPad::get()->toArray();
+
+        return view('admin.list', $configuration);
 	}
 
 	/**

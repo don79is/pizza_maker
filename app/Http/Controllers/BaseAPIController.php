@@ -4,7 +4,16 @@ use Illuminate\Routing\Controller;
 
 class BaseAPIController extends Controller {
 
-
+    /**
+     * Store a newly created resource in storage.
+     * GET /baseapi
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        //
+    }
 	/**
 	 * Store a newly created resource in storage.
 	 * POST /baseapi

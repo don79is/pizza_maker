@@ -15,7 +15,8 @@ class PMIngredientsController extends BaseAPIController
     public function adminIndex()
     {
         $configuration ['list'] = PMIngredients::get()->toArray();
-        $configuration ['route'] = 'app.ingredients.delete';
+        $configuration ['edit'] = 'app.ingredients.edit';
+        $configuration ['delete'] = 'app.ingredients.delete';
         //dd($configuration);
         return view('admin.list', $configuration);
     }
@@ -26,7 +27,7 @@ class PMIngredientsController extends BaseAPIController
      *
      * @return Response
      */
-    public function create()
+    public function adminCreate()
     {
         //
     }
@@ -37,7 +38,7 @@ class PMIngredientsController extends BaseAPIController
      *
      * @return Response
      */
-    public function store()
+    public function adminStore()
     {
         //
     }
@@ -49,9 +50,13 @@ class PMIngredientsController extends BaseAPIController
      * @param  int $id
      * @return Response
      */
-    public function show($id)
+    public function adminShow($id)
     {
-        //
+        $configuration ['list'] = PMIngredients::find($id)->toArray();
+        $configuration ['edit'] = 'app.ingredients.edit';
+        $configuration ['delete'] = 'app.ingredients.delete';
+        //dd($configuration);
+        return view('admin.single', $configuration);
     }
 
     /**
@@ -61,7 +66,7 @@ class PMIngredientsController extends BaseAPIController
      * @param  int $id
      * @return Response
      */
-    public function edit($id)
+    public function adminEdit($id)
     {
         //
     }
@@ -73,7 +78,7 @@ class PMIngredientsController extends BaseAPIController
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function adminUpdate($id)
     {
         //
     }

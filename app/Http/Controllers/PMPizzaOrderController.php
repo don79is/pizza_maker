@@ -62,12 +62,12 @@ class PMPizzaOrderController extends BaseAPIController {
 	 */
 	public function adminShow($id)
 	{
-        return view('admin.singlePizza');
+        return view('admin.single');
 	}
 
     public function show($id)
     {
-        return view('user.singlePizza');
+        return view('user.single');
     }
 
 	/**

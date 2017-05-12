@@ -3,57 +3,39 @@
 @section('title', trans('Single view'))
 
 @section('content')
-    <body style='background-color:lightseagreen'>
+    <body style='background-color:yellowgreen'>
+
     <table class="table">
         <thead>
         <tr>
-            @foreach($list as $key => $value)
-                <th>{{$key}}</th>
-            @endforeach
+            <th class="col-md-2">Value</th>
+            <th class="col-md-2">Info</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            @foreach($list as $key => $record)
-                <th>{{$record}}</th>
-            @endforeach
-            <th>
-                <div>
-                    <button href="{{route($delete,$record['id'])}}">view</button>
-                    <button href="{{route($edit,$record['id'])}} ">edit</button>
-                    <button onclick="deleteItem('{{route($delete,$record['id'])}}')">delete</button>
-                </div>
-            </th>
-        </tr>
+
+        @foreach($list as $key => $value)
+            <tr>
+                <td class="col-md-2">{{$key}}</td>
+                <td class="col-md-2">{{$value}}</td>
+            </tr>
+        @endforeach
+
         </tbody>
+        <th>
+            <div>
+                <a href="{{ route( $delete,$value['id']) }}" class="btn btn-primary">List</a>
+                <a href="{{ route( $edit,$value['id']) }}" class="btn btn-default">edit</a>
+                <button onclick="deleteItem('{{route($delete,$value['id'])}}')" class="btn btn-danger">delete</button>
+            </div>
+        </th>
+
+        </tr>
     </table>
 
 
 
 
-@endsection
-@section('html_script')
-    <script>
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
 
-        function deleteItem(route) {
-
-            $.ajax({
-                url: route,
-                type: 'DELETE',
-                dataType: 'jason',                // <---update this
-                success: function () {
-                    alert('DELETE');
-                },
-                error: function () {
-                    alert('ERROR');
-                }
-            });
-        }
-    </script>
 @endsection

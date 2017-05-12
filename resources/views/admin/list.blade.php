@@ -23,9 +23,9 @@
                 @endforeach
                 <th>
                     <div>
-                        <button href="({{route($delete,$row['id'])}}">view</button>
-                        <button href="{{route($edit,$row['id'])}} ">edit</button>
-                        <button onclick="deleteItem('{{route($delete,$row['id'])}}')">delete</button>
+                        <a href="{{ route( $delete,$row['id']) }}" class="btn btn-primary">view</a>
+                        <a href="{{ route( $edit,$row['id']) }}" class="btn btn-default">edit</a>
+                        <button onclick="deleteItem('{{route($delete,$row['id'])}}')"class="btn btn-danger">delete</button>
                     </div>
                 </th>
 
@@ -38,33 +38,29 @@
     </table>
 
 
+    @endsection
+    @section('html_script')
+        <script>
 
-
-
-
-@endsection
-@section('html_script')
-    <script>
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        function deleteItem(route) {
-
-            $.ajax({
-                url: route,
-                type: 'DELETE',
-                dataType: 'jason',                // <---update this
-                success: function () {
-                    alert('DELETE');
-                },
-                error: function () {
-                    alert('ERROR');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-        }
-    </script>
-    @endsection
+
+            function deleteItem(route) {
+
+                $.ajax({
+                    url: route,
+                    type: 'DELETE',
+                                 // <---update this
+                    success: function () {
+                        alert('DELETE');
+                    },
+                    error: function () {
+                        alert('ERROR');
+                    }
+                });
+            }
+        </script>
+@endsection

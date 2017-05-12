@@ -85,9 +85,9 @@ class PMIngredientsController extends BaseAPIController
      * @param  int $id
      * @return Response
      */
-    public function destroy($id)
+    public function adminDestroy($id)
     {
-        //
+        PMIngredients::destroy($id);
     }
 
 }

@@ -1,8 +1,8 @@
-@extends('main')
+@extends('user.main')
 
 @section('title', trans('Front-End single'))
 
-@section('user')
+@section('content')
 
 
     <body style='background-color:pink'>

@@ -13,7 +13,7 @@
 
 <h1>@yield('title')</h1>
 
-@yield('admin')
+@yield('content')
 {{--@include('footer')--}}
 </body>
 {{--@include('js')--}}

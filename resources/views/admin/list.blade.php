@@ -1,8 +1,8 @@
-@extends('main')
+@extends('admin.main')
 
 @section('title', trans('Admin_list'))
 
-@section('admin')
+@section('content')
 
     <body style='background-color:lightseagreen'>
 
@@ -43,6 +43,7 @@
 
 
 @endsection
+@section('html_script')
     <script>
 
         $.ajaxSetup({
@@ -66,3 +67,4 @@
             });
         }
     </script>
+    @endsection

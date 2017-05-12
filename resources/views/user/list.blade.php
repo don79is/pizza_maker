@@ -1,8 +1,8 @@
-@extends('main')
+@extends('user.main')
 
 @section('title', trans('Front-End list'))
 
-@section('user')
+@section('content')
 
 
     <body style='background-color:blue'>

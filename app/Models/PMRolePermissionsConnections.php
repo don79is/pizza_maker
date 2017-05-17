@@ -18,4 +18,6 @@ class PMRolePermissionsConnections extends Model
      * @var array
      */
     protected $fillable = ['role_id', 'permission_id'];
+
+
 }

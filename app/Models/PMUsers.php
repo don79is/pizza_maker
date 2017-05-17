@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class PMUsers extends Authenticatable
 {
+    public $incrementing = false;
+
     use Notifiable;
 
        /**
@@ -27,4 +29,11 @@ class PMUsers extends Authenticatable
      * @var array
      */
     protected $hidden = ['password', 'remember_token',];
+
+    function roleConnection()
+    {
+        return $this->belongsToMany(PMRoles::class, 'pm_user_roles_conn', 'user_id', 'role_id');
+    }
+
+
 }

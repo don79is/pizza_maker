@@ -3,6 +3,10 @@ Route:: get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'game', 'middleware' => ['auth', 'notMemberRestriction']], function () {
+    Route::get('/', ['as' => 'app.front-end.game.index', 'uses' => 'PMGameController@index']);
+    Route::post('/', ['uses' => 'PMGameController@store']);
+});
 Route::group(['prefix' => 'pizza', 'middleware' => ['auth', 'notMemberRestriction']], function () {
     Route::get('/', ['uses' => 'PMPizzaOrderController@index']);
     Route::get('/create', ['uses' => 'PMPizzaOrderController@create']);

@@ -8,7 +8,6 @@
 
 namespace App\Console\Commands;
 
-
 use App\Models\PMUsers;
 use Illuminate\Console\Command;
 use Ramsey\Uuid\Uuid;
@@ -42,6 +41,6 @@ class CreateAdmin extends Command
             'password' => bcrypt( $password),
         ));
 
-        $record->rolesConnectionData()->sync('super-admin');
+        $record->rolesConnectionData()->sync('super-admin','member');
     }
 }

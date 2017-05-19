@@ -84,6 +84,7 @@
 
                 <div class="links">
                     <a href="{{route('app.user.pizzaOrders.create') }}">Pizza order form</a>
+                    <a href="{{route('app.front-end.game.index') }}">Game</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>

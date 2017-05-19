@@ -1,16 +1,16 @@
 <?php
-Route:: get ('/', function (){
-    return view ('welcome');
+Route:: get('/', function () {
+    return view('welcome');
 });
 
-Route::group(['prefix' => 'pizza','middleware' => ['auth', 'notMemberRestriction']], function () {
+Route::group(['prefix' => 'pizza', 'middleware' => ['auth', 'notMemberRestriction']], function () {
     Route::get('/', ['uses' => 'PMPizzaOrderController@index']);
     Route::get('/create', ['uses' => 'PMPizzaOrderController@create']);
     Route::post('/create', ['as' => 'app.user.pizzaOrders.create', 'uses' => 'PMPizzaOrderController@store']);
     Route::get('/{id}', ['as' => 'app.user.pizzaOrders.show', 'uses' => 'PMPizzaOrderController@show']);
 });
 
-Route::group(['prefix' => 'admin','middleware' =>['auth', 'admin-check']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin-check']], function () {
     Route::group(['prefix' => 'pizzaOrders'], function () {
         Route::get('/', ['as' => 'app.admin.pizzaOrders.index', 'uses' => 'PMPizzaOrderController@adminIndex']);
         Route::get('/create', ['uses' => 'PMPizzaOrderController@adminCreate']);
@@ -101,3 +101,5 @@ Route::group(['prefix' => 'admin','middleware' =>['auth', 'admin-check']], funct
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

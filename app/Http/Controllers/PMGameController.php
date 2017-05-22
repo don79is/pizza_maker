@@ -38,7 +38,7 @@ class PMGameController extends Controller
      */
     public function store()
     {
-        $resource = request()->file('image');
+        $resource = request()->file('name');
         $uploadController = new PMResourseController();
         $record = $uploadController->upload($resource);
         PMUsersResourceConn::create([
